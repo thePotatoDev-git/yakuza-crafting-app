@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakuza Crafting App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Crafting List</h1>
+    <ul class="craftItems">
+        <% for(let i=0; i < items.length; i++) {%>
+            <li class="item">
+                <% if(items[i].completed === true) {%>
+                    <span class='completed'><%= items[i].item %></span>
+                <% }else{ %>
+                    <span><%= items[i].item %></span>
+                <% } %>    
+                <span class='fa fa-trash'></span>
+                <ul class="materials">
+                    <li><%= items[i].material1 %></li>
+                    <li><%= items[i].material2 %></li>
+                    <li><%= items[i].material3 %></li>
+                    <li><%= items[i].material4 %></li>
+                    <li><%= items[i].material5 %></li>
+                    <li><%= items[i].material6 %></li>
+                    <li><%= items[i].material7 %></li>
+                </ul>
+            </li>
+        <% } %>
+    </ul>
+
+    <h2>Items left: <%= left %></h2>
+
+    <h2>Add Crafting Item</h2>
+    <form class="itemForm" action="/addCraftingItem" method="POST">
+        <input type="text" placeholder="Crafting Item" name="craftingItem">
+        <input type="text" placeholder="Material" name="mat1">
+        <input type="text" placeholder="Material" name="mat2">
+        <input type="text" placeholder="Material" name="mat3">
+        <input type="text" placeholder="Material" name="mat4">
+        <input type="text" placeholder="Material" name="mat5">
+        <input type="text" placeholder="Material" name="mat6">
+        <input type="text" placeholder="Material" name="mat7">
+        <input type="submit">
+    </form>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
