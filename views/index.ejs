@@ -20,13 +20,27 @@
                 <% } %>    
                 <span class='fa fa-trash'></span>
                 <ul class="materials">
-                    <li><%= items[i].material1 %></li>
-                    <li><%= items[i].material2 %></li>
-                    <li><%= items[i].material3 %></li>
-                    <li><%= items[i].material4 %></li>
-                    <li><%= items[i].material5 %></li>
-                    <li><%= items[i].material6 %></li>
-                    <li><%= items[i].material7 %></li>
+                    <% if (items[i].material1 !== '') {%> 
+                        <li><%= items[i].material1 %></li>
+                    <%} %>
+                    <% if (items[i].material2 !== '') {%> 
+                        <li><%= items[i].material2 %></li>
+                    <%} %>
+                    <% if (items[i].material3 !== '') {%> 
+                        <li><%= items[i].material3 %></li>
+                    <%} %>
+                    <% if (items[i].material4 !== '') {%> 
+                        <li><%= items[i].material4 %></li>
+                    <%} %>
+                    <% if (items[i].material5 !== '') {%> 
+                        <li><%= items[i].material5 %></li>
+                    <%} %>
+                    <% if (items[i].material6 !== '') {%> 
+                        <li><%= items[i].material6 %></li>
+                    <%} %>
+                    <% if (items[i].material7 !== '') {%> 
+                        <li><%= items[i].material7 %></li>
+                    <%} %>
                 </ul>
             </li>
         <% } %>
