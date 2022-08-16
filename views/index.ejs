@@ -9,39 +9,42 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Crafting List</h1>
+    <h1>Yakuza Gear Crafting Checklist</h1>
     <ul class="craftItems">
         <% for(let i=0; i < items.length; i++) {%>
             <li class="item">
                 <% if(items[i].completed === true) {%>
-                    <span class='completed'><%= items[i].item %></span>
+                    <span class='completed craft-item'><%= items[i].item %></span>
                 <% }else{ %>
-                    <span><%= items[i].item %></span>
+                    <span class="craft-item"><%= items[i].item %></span>
                 <% } %>    
                 <span class='fa fa-trash'></span>
-                <ul class="materials">
-                    <% if (items[i].material1 !== '') {%> 
-                        <li><%= items[i].material1 %></li>
-                    <%} %>
-                    <% if (items[i].material2 !== '') {%> 
-                        <li><%= items[i].material2 %></li>
-                    <%} %>
-                    <% if (items[i].material3 !== '') {%> 
-                        <li><%= items[i].material3 %></li>
-                    <%} %>
-                    <% if (items[i].material4 !== '') {%> 
-                        <li><%= items[i].material4 %></li>
-                    <%} %>
-                    <% if (items[i].material5 !== '') {%> 
-                        <li><%= items[i].material5 %></li>
-                    <%} %>
-                    <% if (items[i].material6 !== '') {%> 
-                        <li><%= items[i].material6 %></li>
-                    <%} %>
-                    <% if (items[i].material7 !== '') {%> 
-                        <li><%= items[i].material7 %></li>
-                    <%} %>
-                </ul>
+                <details>
+                    <summary>Materials...</summary>
+                    <ul class="materials">
+                        <% if (items[i].material1 !== '') {%> 
+                            <li><%= items[i].material1 %></li>
+                        <%} %>
+                        <% if (items[i].material2 !== '') {%> 
+                            <li><%= items[i].material2 %></li>
+                        <%} %>
+                        <% if (items[i].material3 !== '') {%> 
+                            <li><%= items[i].material3 %></li>
+                        <%} %>
+                        <% if (items[i].material4 !== '') {%> 
+                            <li><%= items[i].material4 %></li>
+                        <%} %>
+                        <% if (items[i].material5 !== '') {%> 
+                            <li><%= items[i].material5 %></li>
+                        <%} %>
+                        <% if (items[i].material6 !== '') {%> 
+                            <li><%= items[i].material6 %></li>
+                        <%} %>
+                        <% if (items[i].material7 !== '') {%> 
+                            <li><%= items[i].material7 %></li>
+                        <%} %>
+                    </ul>
+                </details>
             </li>
         <% } %>
     </ul>
