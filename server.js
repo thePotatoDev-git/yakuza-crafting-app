@@ -24,17 +24,17 @@ app.use(express.json());
 
 // GET
 app.get('/', async (req, res) => {
-    // const craftItems = await db.collection('craft-list').find().toArray()
-    // const craftIncomplete = await db.collection('craft-list').countDocuments({completed: false})
-    // res.render('index.ejs', { items: craftItems, left: craftIncomplete })
-    db.collection('craft-list').find()
-        .toArray()
-    .then(data => {
-        db.collection('craft-list').countDocuments({completed: false})
-        .then(itemsLeft => {
-            res.render('index.ejs', { items: data, left: itemsLeft })
-        })
-    })
+    const craftItems = await db.collection('craft-list').find().toArray()
+    const craftIncomplete = await db.collection('craft-list').countDocuments({completed: false})
+    res.render('index.ejs', { items: craftItems, left: craftIncomplete })
+    // db.collection('craft-list').find()
+    //     .toArray()
+    // .then(data => {
+    //     db.collection('craft-list').countDocuments({completed: false})
+    //     .then(itemsLeft => {
+    //         res.render('index.ejs', { items: data, left: itemsLeft })
+    //     })
+    // })
 });
 
 // POST
