@@ -10,6 +10,9 @@
 </head>
 <body>
     <h1>Yakuza Gear Crafting Checklist</h1>
+
+    <h2>Items left: <%= left %></h2>
+    
     <ul class="craftItems">
         <% for(let i=0; i < items.length; i++) {%>
             <li class="item">
@@ -48,8 +51,6 @@
             </li>
         <% } %>
     </ul>
-
-    <h2>Items left: <%= left %></h2>
 
     <h2>Add Crafting Item</h2>
     <form class="itemForm" action="/addCraftingItem" method="POST">

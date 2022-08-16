@@ -1,5 +1,9 @@
+body {
+    background: rgb(240, 235, 215);
+    color: rgb(126, 121, 83);
+}
 h1{
-    color: red;
+    color: rgb(177, 166, 38);
 }
 .completed{
     color: gray;
@@ -12,4 +16,27 @@ h1{
 }
 .itemForm input {
     margin-bottom: 10px;
+}
+summary,
+.materials {
+    color: rgb(77, 77, 77);
+}
+summary:hover {
+    color: rgb(177, 164, 30);
+}
+.materials {
+    background-color: rgb(187, 164, 96);
+    border: 5px double rgb(129, 129, 129);
+    width: 100px;
+}
+.craft-item {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.fa {
+    color: rgba(126, 121, 83, 0.3);
+}
+.fa:hover {
+    color: rgb(126, 121, 83);
 }

@@ -1,18 +1,18 @@
-const deleteBtn = document.querySelectorAll('.fa-trash')
-const item = document.querySelectorAll('.item span')
-const itemCompleted = document.querySelectorAll('.item span.completed')
+const deleteBtn = document.querySelectorAll('.fa-trash');
+const item = document.querySelectorAll('.item span.craft-item');
+const itemCompleted = document.querySelectorAll('.item span.completed');
 
 Array.from(deleteBtn).forEach((element)=>{
     element.addEventListener('click', deleteItem)
-})
+});
 
 Array.from(item).forEach((element)=>{
     element.addEventListener('click', markComplete)
-})
+});
 
 Array.from(itemCompleted).forEach((element)=>{
     element.addEventListener('click', markIncomplete)
-})
+});
 
 async function deleteItem(){
     const itemText = this.parentNode.childNodes[1].innerText
@@ -31,7 +31,7 @@ async function deleteItem(){
     }catch(err){
         console.log(err)
     }
-}
+};
 
 async function markComplete(){
     const itemText = this.parentNode.childNodes[1].innerText
@@ -50,7 +50,7 @@ async function markComplete(){
     }catch(err){
         console.log(err)
     }
-}
+};
 
 async function markIncomplete(){
     const itemText = this.parentNode.childNodes[1].innerText
@@ -69,4 +69,4 @@ async function markIncomplete(){
     }catch(err){
         console.log(err)
     }
-}
+};
