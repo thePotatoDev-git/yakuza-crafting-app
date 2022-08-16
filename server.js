@@ -27,7 +27,8 @@ app.get('/', async (req, res) => {
     // const craftItems = await db.collection('craft-list').find().toArray()
     // const craftIncomplete = await db.collection('craft-list').countDocuments({completed: false})
     // res.render('index.ejs', { items: craftItems, left: craftIncomplete })
-    db.collection('craft-list').find().toArray()
+    db.collection('craft-list').find()
+        .toArray()
     .then(data => {
         db.collection('craft-list').countDocuments({completed: false})
         .then(itemsLeft => {
@@ -38,7 +39,15 @@ app.get('/', async (req, res) => {
 
 // POST
 app.post('/addCraftingItem', (req, res) => {
-    db.collection('craft-list').insertOne({item: req.body.craftingItem, material1: req.body.mat1, material2: req.body.mat2, material3: req.body.mat3, material4: req.body.mat4, material5: req.body.mat5, material6: req.body.mat6, material7: req.body.mat7,  completed: false})
+    db.collection('craft-list').insertOne({item: req.body.craftingItem, 
+        material1: req.body.mat1, 
+        material2: req.body.mat2, 
+        material3: req.body.mat3, 
+        material4: req.body.mat4, 
+        material5: req.body.mat5, 
+        material6: req.body.mat6, 
+        material7: req.body.mat7, 
+        completed: false})
     .then(result => {
         console.log('Crafting Item Added')
         res.redirect('/')
