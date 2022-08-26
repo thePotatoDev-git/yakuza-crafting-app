@@ -1,20 +1,24 @@
 const express = require('express');
 const app = express();
-const MongoClient = require('mongodb').MongoClient;
+const mongoose = require('mongoose');
+const connectDB = require('./config/database');
+const mainRoutes = require('./routes/main');
+const craftingItemRoutes = require('./routes/craftingItems');
 const PORT = 3000;
-require('dotenv').config();
+require('dotenv').config({path: './config/.env'});
 
 // DB string
-let db,
-    dbConnectionStr = process.env.DB_STRING,
-    dbName = 'yakuza-crafting-list'
+connectDB();
+// let db,
+//     dbConnectionStr = process.env.DB_STRING,
+//     dbName = 'yakuza-crafting-list'
 
 // MongoDB connection
-MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
-    .then(client => {
-        console.log(`Connected to ${dbName} Database`)
-        db = client.db(dbName)
-    });
+// MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+//     .then(client => {
+//         console.log(`Connected to ${dbName} Database`)
+//         db = client.db(dbName)
+//     });
 
 // Middleware
 app.set('view engine', 'ejs');
@@ -24,9 +28,6 @@ app.use(express.json());
 
 // GET
 app.get('/', async (req, res) => {
-    // const craftItems = await db.collection('craft-list').find().toArray()
-    // const craftIncomplete = await db.collection('craft-list').countDocuments({completed: false})
-    // res.render('index.ejs', { items: craftItems, left: craftIncomplete })
     db.collection('craft-list').find()
         .toArray()
     .then(data => {
